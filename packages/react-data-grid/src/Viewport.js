@@ -33,6 +33,7 @@ const Viewport = React.createClass({
     rowHeight: PropTypes.number.isRequired,
     onRows: PropTypes.func,
     onScroll: PropTypes.func,
+    onBottomReached: PropTypes.func,
     minHeight: PropTypes.number,
     cellMetaData: PropTypes.shape(cellMetaDataShape),
     rowKey: PropTypes.string.isRequired,
@@ -100,6 +101,7 @@ const Viewport = React.createClass({
           height={this.state.height}
           rowHeight={this.props.rowHeight}
           onScroll={this.onScroll}
+          onBottomReached={this.props.onBottomReached}
           onRows={this.props.onRows}
           rowScrollTimeout={this.props.rowScrollTimeout}
           contextMenu={this.props.contextMenu}

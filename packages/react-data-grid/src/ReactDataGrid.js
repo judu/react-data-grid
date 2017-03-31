@@ -67,6 +67,7 @@ const ReactDataGrid = React.createClass({
     onCellsDragged: React.PropTypes.func,
     onAddFilter: React.PropTypes.func,
     onGridSort: React.PropTypes.func,
+    onBottomReached: React.PropTypes.func,
     onDragHandleDoubleClick: React.PropTypes.func,
     onGridRowsUpdated: React.PropTypes.func,
     onRowSelect: React.PropTypes.func,
@@ -931,6 +932,7 @@ const ReactDataGrid = React.createClass({
             sortColumn={this.state.sortColumn}
             sortDirection={this.state.sortDirection}
             onSort={this.handleSort}
+            onBottomReached={this.props.onBottomReached}
             minHeight={this.props.minHeight}
             totalWidth={gridWidth}
             onViewportKeydown={this.onKeyDown}

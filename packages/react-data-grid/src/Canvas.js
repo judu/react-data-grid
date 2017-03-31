@@ -39,6 +39,7 @@ const Canvas = React.createClass({
     expandedRows: PropTypes.array,
     onRows: PropTypes.func,
     onScroll: PropTypes.func,
+    onBottomReached: PropTypes.func,
     columns: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
     cellMetaData: PropTypes.shape(cellMetaDataShape).isRequired,
     selectedRows: PropTypes.array,
@@ -337,6 +338,11 @@ const Canvas = React.createClass({
     if (rowsCount - displayEnd > 0) {
       rows.push(
         this.renderPlaceholder('bottom', (rowsCount - displayEnd) * rowHeight));
+    } else {
+       // We are at the bottom of the array
+       if (this.props.onBottomReached) {
+          this.props.onBottomReached({lastIdx: displayEnd});
+       }
     }
 
     let style = {

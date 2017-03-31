@@ -46,6 +46,7 @@ const Grid = React.createClass({
     onViewportDoubleClick: PropTypes.func.isRequired,
     onColumnResize: PropTypes.func,
     onSort: PropTypes.func,
+    onBottomReached: PropTypes.func,
     onHeaderDrop: PropTypes.func,
     cellMetaData: PropTypes.shape(cellMetaDataShape),
     rowKey: PropTypes.string.isRequired,
@@ -116,6 +117,7 @@ const Grid = React.createClass({
                   columnMetrics={this.props.columnMetrics}
                   totalWidth={this.props.totalWidth}
                   onScroll={this.onScroll}
+                  onBottomReached={this.props.onBottomReached}
                   onRows={this.props.onRows}
                   cellMetaData={this.props.cellMetaData}
                   rowOffsetHeight={this.props.rowOffsetHeight || this.props.rowHeight * headerRows.length}
